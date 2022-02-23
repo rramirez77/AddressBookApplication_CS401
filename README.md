@@ -1,2 +1,2 @@
-# AddressBookApplication_CS401
+# Ramirez_AddressBook
 Repository for Address Book Application
