@@ -3,7 +3,6 @@ package address;
 import address.data.addressBook;
 import address.data.addressEntry;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 
