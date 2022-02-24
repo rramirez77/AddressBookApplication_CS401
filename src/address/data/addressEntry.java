@@ -59,11 +59,11 @@ public class addressEntry {
     }
 
     /**
-     * Other constructor
-     * Initializes all attributes to a new value
+     * Other constructor initializes all attributes to a new value
      * @param firstName new first name
      * @param lastName new last name
      * @param street new street name
+     * @param city new city name
      * @param state new state
      * @param zip new zipcode
      * @param phone new phone number
@@ -91,69 +91,135 @@ public class addressEntry {
                 "\n" + city + ", " + state + " " + zip + "\n" + email + "\n"+ phone + "\n\n";
     }
 
-    /** * * * * * * * * *
-     * Set and get methods
-     ** * * * * * * * * */
-    public void setFirstName(String firstName) {
+    /* Setters */
+
+    /**
+     * Sets firstName to new value
+     * @param firstName new first name
+     **/
+    public void setFirstName(String firstName){
         this.firstName = firstName;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
+    /**
+     *  Sets lastName to new value
+     * @param lastName new last name
+     **/
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
+    /**
+     * Sets street to new value
+     * @param street new street name
+     **/
     public void setStreet(String street) {
         this.street = street;
     }
 
-    public String getStreet() {
-        return street;
-    }
-
+    /**
+     * Sets city to new value
+     * @param city new city name
+     **/
     public void setCity(String city) {
         this.city = city;
     }
 
-    public String getCity() {
-        return city;
-    }
-
+    /**
+     *Sets state to new value
+     * @param state - new state name
+     **/
     public void setState(String state) {
         this.state = state;
     }
 
-    public String getState() {
-        return state;
-    }
-
+    /**
+     * Sets zip to new value
+     * @param zip new zipcode
+     **/
     public void setZip(Integer zip) {
         this.zip = zip;
     }
 
-    public Integer getZip() {
-        return zip;
-    }
-
+    /**
+     * Sets phone to new value
+     * @param phone new phone number
+     **/
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
+    /**
+     * Sets email to new value
+     * @param email new email
+     **/
     public void setEmail(String email) {
         this.email = email;
     }
 
+
+    /* Getters */
+
+    /**
+     * Gets firstName
+     * @return firstName
+     **/
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * Gets lastName
+     * @return lastName
+     **/
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * Gets street
+     * @return street
+     **/
+    public String getStreet() {
+        return street;
+    }
+
+    /**
+     * Gets city
+     * @return city
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * Gets state
+     * @return state
+     */
+    public String getState() {
+        return state;
+    }
+
+    /**
+     * Gets zip
+     * @return zip
+     **/
+    public Integer getZip() {
+        return zip;
+    }
+
+    /**
+     * Gets phone number
+     * @return phone
+     **/
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * Gets email
+     * @return email
+     **/
     public String getEmail() {
         return email;
     }

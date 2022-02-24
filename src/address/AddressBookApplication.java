@@ -3,39 +3,147 @@ package address;
 import address.data.addressBook;
 import address.data.addressEntry;
 
+import java.io.IOException;
+import java.util.Scanner;
+
+
+/**
+ * AddressBookApplication is a main application class that creates and stores entries in an address book
+ *
+ * @author Romano Ramirez
+ * @since Version 1.5
+ **/
 public class AddressBookApplication {
 
+    /**
+     * Main method
+     * @param args String inputs
+     */
     public static void main(String[] args) {
-        //create instance of menu
-        Menu myMenu = new Menu();
+        // Create user input
+        Scanner myObj = new Scanner(System.in);
 
-        //create instance of address book
+        // Create instance of address book
         addressBook ab = new addressBook();
 
-        // Call AddressBook method to add an entry into the address book
-        initAddressBookExercise(ab);
+        // Create instance of menu
+        Menu myMenu = new Menu();
 
-        //Display to standard output all the Menu prompts
-        System.out.println(myMenu.prompt_FirstName());
-        System.out.println(myMenu.prompt_LastName());
-        System.out.println(myMenu.prompt_Street());
-        System.out.println(myMenu.prompt_City());
-        System.out.println(myMenu.prompt_State());
-        System.out.println(myMenu.prompt_Zip());
-        System.out.println(myMenu.prompt_Telephone());
-        System.out.println(myMenu.prompt_Email());
+        while (true) {
+            // Display menu
+            System.out.print(myMenu.displayMenu());
+
+            // Prompt user to make a selection
+            System.out.print("Please make a selection: ");
+
+            // String input for menu selection
+            String choice = myObj.nextLine();
+
+            switch (choice) {
+                case "a" -> { // Load an entry (or entries) from file
+
+                    // Create flag to re-prompt user if an error occurs
+                    boolean FileNotFound = true;
+                    while (FileNotFound) {
+                        // Prompt user to enter file name
+                        System.out.print("Enter in File name: ");
+                        try {
+                            // Input file name
+                            String fileName = myObj.nextLine();
+
+                            // Read from file
+                            addressBook.readFromFile(fileName, ab);
+
+                            // Exit loop
+                            FileNotFound = false;
+
+                        } catch (Exception IOException) {
+                            // Prompt user that file was not found
+                            System.out.println("File not found.\n");
+                        }
+                    }
+                }
+                // Back to menu
+                case "b" -> { // Add an entry
+                    // Create addressEntry object
+                    addressEntry entry;
+
+                    // User information is used to create address entry
+                    entry = new addressEntry(myMenu.prompt_FirstName(), myMenu.prompt_LastName(), myMenu.prompt_Street(),
+                            myMenu.prompt_City(), myMenu.prompt_State(), myMenu.prompt_Zip(), myMenu.prompt_Telephone(), myMenu.prompt_Email());
+
+                    // Add address entry into address book
+                    ab.add(entry);
+
+                    // Notify user that entry was added into address book
+                    System.out.println("\nEntry added into address book.\n");
+                }
+
+                // Back to menu
+                case "c" -> { // Remove an entry
+                    // Prompt user to type last name of the entry
+                    System.out.println("Type last name of the entry to be deleted: ");
+
+                    // Input last name
+                    String delLastName = myObj.nextLine();
+
+                    // Find and remove entry via last name
+                    ab.removal(delLastName);
+                }
+
+                // Back to menu
+                case "d" -> { // Find an entry by last name
+                    // Prompt user to type all or beginning last name of the entry
+                    System.out.println("Type all or beginning of last name of the entry: ");
+
+                    // Input last name
+                    String findLastName = myObj.nextLine();
+
+                    // Find entry (or entries) via last name
+                    ab.find(findLastName);
+                }
+
+                // Back to menu
+                case "e" -> // Display all entries in the address book
+                        ab.list();
+
+
+                // Back to menu
+                case "f" -> { // Quit program
+                    System.out.println("Quitting.");
+                    System.exit(0);
+                }
+                default ->
+                        // Notify user if they made an incorrect input
+                        System.out.println("Incorrect input. Please try again.");
+            }
+        }
     }
+        // Call AddressBook method to add an entry into the address book
+        //initAddressBookExercise(ab);
 
-    // Adds an entry into the address book
+        // Reads in data from a file and create an entry in the address book.
+       //  init("C:\\Users\\roman\\OneDrive\\Desktop\\AddressInputDataFile.txt", ab);
+
+    /*
+     * Adds entries to the address book.
+     * @param ab - address book to add entries into
+     */
+    /*
     static void initAddressBookExercise(addressBook ab){
+        // Two hardcoded entries
         addressEntry entry1, entry2;
         entry1 = new addressEntry("Romano", "Ramirez", "123 ABC Street", "Richmond", "CA",
                 94806, "123456789", "rramirez77@horizon.csueastbay.edu");
         entry2 = new addressEntry("James", "Sunderland", "1440 Bradbury St.", "South Ashfield", "PA",
                 19099, "989764001", "james.sunderland@yahoo.com");
 
+        // Add the two entries into the address book
         ab.add(entry1);
         ab.add(entry2);
+
+        // Print entries
         ab.list();
     }
+    */
 }
