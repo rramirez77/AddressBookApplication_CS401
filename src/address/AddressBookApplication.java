@@ -10,7 +10,7 @@ import java.util.Scanner;
  * AddressBookApplication is a main application class that creates and stores entries in an address book
  *
  * @author Romano Ramirez
- * @since Version 1.5
+ * @since Version 1.0
  **/
 public class AddressBookApplication {
 
@@ -118,31 +118,4 @@ public class AddressBookApplication {
             }
         }
     }
-        // Call AddressBook method to add an entry into the address book
-        //initAddressBookExercise(ab);
-
-        // Reads in data from a file and create an entry in the address book.
-       //  init("C:\\Users\\roman\\OneDrive\\Desktop\\AddressInputDataFile.txt", ab);
-
-    /*
-     * Adds entries to the address book.
-     * @param ab - address book to add entries into
-     */
-    /*
-    static void initAddressBookExercise(addressBook ab){
-        // Two hardcoded entries
-        addressEntry entry1, entry2;
-        entry1 = new addressEntry("Romano", "Ramirez", "123 ABC Street", "Richmond", "CA",
-                94806, "123456789", "rramirez77@horizon.csueastbay.edu");
-        entry2 = new addressEntry("James", "Sunderland", "1440 Bradbury St.", "South Ashfield", "PA",
-                19099, "989764001", "james.sunderland@yahoo.com");
-
-        // Add the two entries into the address book
-        ab.add(entry1);
-        ab.add(entry2);
-
-        // Print entries
-        ab.list();
-    }
-    */
 }
